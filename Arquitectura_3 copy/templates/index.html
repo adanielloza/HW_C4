@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>License and Ruc</title>
+</head>
+<body>
+    <h1>License and Ruc</h1>
+    <form action="/process" method="POST">
+        <label for="cedula">Cedula:</label>
+        <input type="text" id="cedula" name="cedula">
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if ruc %}
+    <h2>RUC Information</h2>
+    {% if ruc['existe'] %}
+        <p>RUC: {{ ruc['ruc'] }}</p>
+        <!-- Additional RUC information can be added here if available -->
+    {% else %}
+        <p>No information found for the provided RUC.</p>
+    {% endif %}
+{% endif %}
+
+{% if cedula %}
+    <h2>Cedula Information</h2>
+    <p>Cedula: {{ cedula['cedula'] }}</p>
+    <p>Nombre: {{ cedula['nombre'] }}</p>
+    <p>Puntos: {{ cedula['puntos'] }}</p>
+    <!-- Additional Cedula information can be added here if available -->
+{% endif %}
+</body>
+
+</html>
